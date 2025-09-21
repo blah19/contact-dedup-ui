@@ -53,7 +53,7 @@ export default function ConnectionForm({ onChange }: Props) {
           } catch { }
         }
       } catch (err) {
-        // ignore errors
+       
       }
     }
     tryLoadLocalToken()
