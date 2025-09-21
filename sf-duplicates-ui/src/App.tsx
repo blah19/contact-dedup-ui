@@ -21,10 +21,10 @@ export default function App() {
 
   return (
     <div style={{ padding: 16, maxWidth: 1000, margin: '0 auto' }}>
-      <h1 style={{ fontSize: 20, marginBottom: 12 }}>Salesforce Duplicate Matches</h1>
+      <h1 style={{ fontSize: 20, marginBottom: 12 }}>Salesforce Duplicate Contacts</h1>
       <ConnectionForm onChange={onChange} />
       {!cfg ? (
-        <div style={{ color: '#555' }}>Enter instance URL and token</div>
+        <div style={{ color: '#555' }}>Login with Salesforce first</div>
       ) : (
         <DuplicateTable
           items={items ?? []}
