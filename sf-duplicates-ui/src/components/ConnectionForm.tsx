@@ -71,7 +71,7 @@ export default function ConnectionForm({ onChange }: Props) {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 12 }}>
       <button
         onClick={async () => {
           // start PKCE auth flow and navigate directly
@@ -145,7 +145,19 @@ export default function ConnectionForm({ onChange }: Props) {
             setLoginError(String(err && (err as any).message ? (err as any).message : err))
           }
         }}
-        style={{ padding: 12, borderRadius: 8, border: '1px solid #ccc', background: '#fffbe6', fontSize: '16px', cursor: 'pointer' }}
+        style={{ 
+          padding: '12px 24px', 
+          borderRadius: 8, 
+          border: '1px solid #007acc', 
+          background: '#0070f3', 
+          color: 'white',
+          fontSize: '16px', 
+          fontWeight: '500',
+          cursor: 'pointer',
+          transition: 'background-color 0.2s ease'
+        }}
+        onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#005bb5'}
+        onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#0070f3'}
       >
         Login with Salesforce
       </button>
