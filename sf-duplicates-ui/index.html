@@ -7,6 +7,26 @@
   </head>
   <body style="margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial">
     <div id="root"></div>
+    <script type="module">
+      // Inject dev-time OAuth globals from Vite env into window for the in-app PKCE flow.
+      // Set these in .env or .env.local as VITE_SF_INSTANCE and VITE_SF_CLIENT_ID.
+      try {
+        // eslint-disable-next-line no-undef
+        const auth = import.meta.env.VITE_SF_INSTANCE || import.meta.env.VITE_SF_AUTH_DOMAIN || ''
+        // eslint-disable-next-line no-undef
+        const cid = import.meta.env.VITE_SF_CLIENT_ID || import.meta.env.VITE_SF_CLIENT || ''
+        // eslint-disable-next-line no-undef
+        const secret = import.meta.env.VITE_SF_CLIENT_SECRET || ''
+        // eslint-disable-next-line no-undef
+        const red = import.meta.env.VITE_SF_REDIRECT_URI || import.meta.env.VITE_REDIRECT_URI || import.meta.env.REDIRECT_URI || ''
+        if (auth) window.__SF_AUTH_DOMAIN__ = auth
+        if (cid) window.__SF_CLIENT_ID__ = cid
+        if (secret) window.__SF_CLIENT_SECRET__ = secret
+        if (red) window.__SF_REDIRECT_URI__ = red
+      } catch (e) {
+        // ignore in environments that don't support import.meta
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

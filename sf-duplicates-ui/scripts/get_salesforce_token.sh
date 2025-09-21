@@ -37,6 +37,7 @@ STATE="$($PYTHON_BIN - <<'PY'
 import os,base64; print(base64.urlsafe_b64encode(os.urandom(24)).decode().rstrip('='))
 PY
 )"
+export STATE
 
 read HOST PORT CALLBACK_PATH < <(python_parse_redirect "$REDIRECT_URI")
 [ -z "$PORT" ] && PORT=53682

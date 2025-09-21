@@ -39,6 +39,32 @@ export default defineConfig([
 ])
 ```
 
+## Local dev setup (OAuth helpers)
+
+This project includes a small interactive setup helper and dev convenience for running the in-app OAuth + PKCE flow.
+
+- Run the interactive helper to create `sf-duplicates-ui/.env` with your Salesforce client ID/secret and redirect URI:
+
+```
+cd sf-duplicates-ui
+npm run setup
+```
+
+- Source the generated `.env` into your shell (or open a new terminal) so shell helpers see the values:
+
+```
+source sf-duplicates-ui/.env
+```
+
+- Start the dev server:
+
+```
+npm run dev
+```
+
+Notes:
+- The setup writes `VITE_SF_CLIENT_SECRET` for local dev convenience; this value is injected into the app and used only in development. Do not commit `.env` to source control.
+- The recommended secure flow for production is to perform token exchanges server-side and never expose client secrets to browsers.
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js

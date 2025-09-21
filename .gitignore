@@ -1,2 +1,6 @@
 sf-duplicates-ui/tools/jq
 sf-duplicates-ui/token.json
+node_modules
+/.env
+public/token.json
+sf-duplicates-ui/.env
