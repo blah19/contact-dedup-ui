@@ -4,3 +4,4 @@ node_modules
 /.env
 public/token.json
 sf-duplicates-ui/.env
+sf-duplicates-ui/public/*.json
